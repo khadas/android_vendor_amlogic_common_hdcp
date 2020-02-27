@@ -1,4 +1,4 @@
-on property:vold.post_fs_data_done=1
+on property:vendor.tee_key_inject=1 && property:init.svc.vendor.key_inject=stopped
 	start tee_hdcp
 
 service tee_hdcp /vendor/bin/tee_hdcp
