@@ -1,0 +1,22 @@
+cc_prebuilt_binary {
+    name: "tee_hdcp",
+    multilib: {
+        lib32: {
+            srcs: ["bin/tee_hdcp"],
+        },
+        lib64: {
+            srcs: ["bin64/tee_hdcp"],
+        },
+    },
+    init_rc: ["tee_hdcp.rc"],
+
+    strip: {
+        none:true,
+    },
+    shared_libs: [
+        "libteec",
+        "libcutils",
+    ],
+
+    proprietary: true,
+}
