@@ -1,5 +1,28 @@
+bootstrap_go_package {
+    name: "soong-droidlogic_hdcp",
+    pkgPath: "android/soong/vendor/amlogic/common/hdcp/ca",
+    deps: [
+        "blueprint",
+        "blueprint-pathtools",
+        "soong",
+        "soong-android",
+        "soong-cc",
+        "soong-genrule",
+    ],
+    srcs: [
+        "droidlogic_hdcp.go",
+    ],
+    pluginFor: ["soong_build"],
+}
+
+hdcp_go_defaults {
+    name: "hdcp_go_defaults",
+}
+
 cc_prebuilt_binary {
     name: "tee_hdcp",
+    defaults: ["hdcp_go_defaults"],
+
     multilib: {
         lib32: {
             srcs: ["bin/tee_hdcp"],
